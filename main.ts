@@ -6,8 +6,8 @@
 //  Type Accerssions 
 let message;
 message = "abc";
-let endsWithC = (<string>message).endsWith("c" || "C");
-let altEndsWithC = (message as string).endsWith("c" || "C");
+let endsWithC = (<string>message).endsWith("c");
+let altEndsWithC = (message as string).endsWith("c");
 
 
 //  Arrow Functions [Lamda]
@@ -35,6 +35,7 @@ let drawPoint = (a,b,c,d,e,f,g) => {
 interface Point{    //use Pascal case/naming convension with interfaces
     x: number,
     y: number
+    draw: () => void;   //interfaces cannot implement logic
 }
 
 let drawPoint2 = (point:Point) => {
@@ -46,5 +47,27 @@ let drawPoint2 = (point:Point) => {
     */
 //--------------------------------------------------------------------------------------------------
 
+class PointClass{
+    x: number;
+    y: number;
 
+    constructor(x:number,y:number){
+        this.x = x;
+        this.y = y;
+    }
+
+
+    draw(){     //Funtion in class hence this is a Method
+        // Draw logic goes here
+        console.log(this.x + "," + this.y);
+        
+    }
+    getDistance(){
+        //get distance logic goes here
+        
+    }
+}
+
+let point = new PointClass(5,7);   //instance of PointClass
+point.draw();
 
